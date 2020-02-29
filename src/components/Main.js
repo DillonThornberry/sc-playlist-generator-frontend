@@ -1,6 +1,7 @@
 import React from 'react'
-import Nav from './Nav'
+import SearchUser from './SearchUser'
 import SearchResults from './SearchResults'
+import ChooseOptions from './ChooseOptions'
 
 export default class Main extends React.Component {
     constructor(props){
@@ -30,9 +31,16 @@ export default class Main extends React.Component {
     render() {
         return (
             <div>
-                <Nav user={this.state.user} setResults={this.setSearchResults} />
+                { !this.state.user && !this.state.searchResults && 
+                <SearchUser setResults={this.setSearchResults} /> }
+
                 { this.state.searchResults && 
-                <SearchResults results={this.state.searchResults} selectUser={this.selectUser} /> }
+                <SearchResults results={this.state.searchResults} selectUser={this.selectUser} 
+                    setResults={this.setSearchResults}/> }
+
+                { this.state.user && !this.state.songList && 
+                <ChooseOptions user={this.state.user} />}
+                
             </div>
         )
     }

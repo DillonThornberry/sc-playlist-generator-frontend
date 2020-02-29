@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Nav(props) {
+export default function SearchUser(props) {
 
     const searchUser = e => {
         e.preventDefault()
@@ -11,10 +11,10 @@ export default function Nav(props) {
     }
 
     return (
-        <div id="nav-bar">
-            { props.user && <img src={props.user.avatar_url} alt="user-avatar" /> }
+        <div id="start-page">
+            <h1>SoundCloud Playlist Generator</h1>
             <form onSubmit={searchUser}>
-                <input type="text" name="searchbar" placeholder="enter SC username" />
+                <input type="search" inputMode="search" name="searchbar" placeholder="enter SC username" />
             </form>
         </div>
     )

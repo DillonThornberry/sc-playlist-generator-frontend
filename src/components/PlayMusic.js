@@ -1,10 +1,13 @@
 import React from 'react'
+import SongCard from './SongCard'
 
 export default function PlayMusic(props) {
     return (
         <div>
             <button onClick={props.clearPlaylist}>back</button>
-            <p>{JSON.stringify(props.songList.map(song => song.title))}</p>
+            <iframe width="100%" height="150" scrolling="no" frameborder="no" allow="autoplay" 
+            src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/210176542&color=%23ff5500&auto_play=true&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=false&visual=true"></iframe>
+            {props.songList.map(song => <SongCard song={song} /> )}
             { props.nextPage &&
             <button onClick={props.getNextPage}>next page</button> }
         </div>

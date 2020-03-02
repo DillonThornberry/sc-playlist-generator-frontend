@@ -34,6 +34,7 @@ export default class Main extends React.Component {
         fetch(`/playlist?userId=${np.userId}&mine=${np.mine}&their=${np.their}&cursor=${np.cursor}`)
         .then(res => res.json()).then(data => {
             console.log('in fetch')
+            if (!this.state.songList || !this.state.user){ return }
             this.setState({
                 songList: this.state.songList.concat(data.trackList.filter(song => !!song)),
                 nextPage: data.nextPage
@@ -43,7 +44,7 @@ export default class Main extends React.Component {
 
     selectUser(user){
         this.setState({
-            user,
+            user: user,
             searchResults: null,
         })
     }
@@ -53,6 +54,9 @@ export default class Main extends React.Component {
     }
 
     setSongList(playList){
+        if (!this.state.user){
+            return
+        }
         this.setState({
             songList: playList.trackList.filter(x => !!x),
             nextPage: playList.nextPage

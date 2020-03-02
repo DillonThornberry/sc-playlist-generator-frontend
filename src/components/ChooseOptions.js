@@ -1,23 +1,33 @@
 import React from 'react'
 
 export default function ChooseOptions(props) {
+    var fetchedAlready = false
     const getPlaylist = e => {
         e.preventDefault()
         var mine = e.target.mine.value
         var their = e.target.their.value
 
-        if (mine && their) {
+        if (mine && their && !fetchedAlready) {
             console.log('clicked')
+            fetchedAlready = true
+            var message = document.querySelector('#generating')
+            message.innerHTML = "Generating Playlist..."
+            
             fetch(`/playlist?userId=${props.user.id}&mine=${mine}&their=${their}`)
             .then(res => res.json()).then(data => {
-                props.setSongList(data)
+                if (data.trackList){
+                    props.setSongList(data)
+                } else {
+                    message.innerHTML = "no results"
+                }
+                
             })
         }
     }
     return (
         <div>
             <button onClick={props.clearUser}>back</button>
-            <form onSubmit={getPlaylist}>
+            <form id="option-menu" onSubmit={getPlaylist}>
                 <div className="btn-group-vertical">
                     <input id="liked-tracks" type="radio" name="mine" value="favorites"></input>
                     <label for="liked-tracks">Liked Tracks</label>
@@ -36,9 +46,9 @@ export default function ChooseOptions(props) {
                     <label for="recent-like">Most Recent Like</label>
                 </div>
                 
-
-                <button type="submit">Generate Playlist</button>
+                <button id="generate-playlist" type="submit">Generate Playlist</button>
             </form>
+            <h3 id="generating"></h3>
         </div>
     )
 }

@@ -51,10 +51,43 @@ table {
 
 body {
   width: auto;
-  height: auto;
+  height: 98vh;
+  background-image: linear-gradient(#DCAB6B, gray)
 }
 
-#nav-bar {
-  background-color: red;
+.user-card{
+	border: 2px solid black;
+	display: flex;
 }
 
+.user-title{
+	font-size: 20pt;
+}
+
+#home-page {
+
+}
+
+#logo {
+	margin-bottom: 5vh;
+	font-size: 30pt;
+}
+
+#logo-and-search {
+	text-align: center;
+	margin-top: 15vh;
+}
+
+#results-container {
+	border: 2px solid black;
+	margin-top: 10vh;
+	text-align: center;
+}
+
+#user-list {
+	width: 90vw;
+	border: 2px solid black;
+	text-align: left;
+	margin-left: auto;
+	margin-right: auto;
+}

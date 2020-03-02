@@ -11,11 +11,13 @@ export default function SearchUser(props) {
     }
 
     return (
-        <div id="start-page">
-            <h1>SoundCloud Playlist Generator</h1>
-            <form onSubmit={searchUser}>
-                <input type="search" inputMode="search" name="searchbar" placeholder="enter SC username" />
-            </form>
+        <div id="home-page">
+            <div id="logo-and-search">
+                <h1 id="logo">SoundCloud Playlist Generator</h1>
+                <form onSubmit={searchUser}>
+                    <input type="search" inputMode="search" spellcheck="false" name="searchbar" placeholder="enter SC username" />
+                </form>
+            </div>
         </div>
     )
 }

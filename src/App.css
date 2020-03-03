@@ -59,6 +59,9 @@ button {
 	background-color: #b3b3b3;
 }
 
+.song-card {
+}
+
 .song-title {
 	color: white;
 	font-size: 125%;
@@ -104,6 +107,11 @@ button {
 }
 
 #search-form {
+}
+
+#song-container {
+	display: grid;
+	grid-template-columns: auto auto auto auto auto auto;
 }
 
 #user-list {

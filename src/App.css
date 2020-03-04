@@ -59,16 +59,63 @@ button {
 	background-color: #b3b3b3;
 }
 
+.selection-buttons input[type="radio"] {
+	opacity: 0;
+	width: 0;
+	display: grid;
+}
+  
+.selection-buttons label {
+display: inline-block;
+background-color: #ddd;
+padding: 10px 20px;
+width: 20vw;
+font-family: sans-serif, Arial;
+font-size: 16px;
+border: 2px solid #444;
+border-radius: 4px;
+}
+  
+.selection-buttons input[type="radio"]:checked + label {
+background-color:rgb(235, 235, 235);
+border-color: rgb(209, 121, 39);
+}
+
+.song-art {
+	margin-top: 3vh;
+	border: 1px solid white;
+}
+
+.song-artist {
+	color: orange;
+	width: 100%
+}
+
 .song-card {
+	height: 200px;
+	width: 200px;
+	text-align: center;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	border: 2px solid white;
+	vertical-align: baseline;
+	background-color: rgba(255, 255, 255, 0.25);
+	padding: 4px;
+	margin-bottom: 2vh;
+}
+
+.song-card-playing {
+	background-color: rgba(17, 68, 206, 0.25);
+}
+
+.song-card:hover{
+	border: 3px solid white;
 }
 
 .song-title {
 	color: white;
 	font-size: 125%;
-}
-
-.song-artist {
-	color: orange;
+	white-space: nowrap;
 }
 
 .user-card{
@@ -106,12 +153,21 @@ button {
 	text-align: center;
 }
 
-#search-form {
-}
+#selection-menu-container{
+	margin-top: 100px;
+	height: 70vh;
+	display: grid;
+	justify-content: center;
+	align-content: space-between;
+	width: 100%;
+  }
 
 #song-container {
+	margin-top: 10px;
 	display: grid;
 	grid-template-columns: auto auto auto auto auto auto;
+	padding-left: 10px;
+	padding-right: 10px;
 }
 
 #user-list {

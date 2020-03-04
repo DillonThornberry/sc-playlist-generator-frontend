@@ -27,21 +27,6 @@ export default class Main extends React.Component {
         })
     }
 
-    checkForDuplicateSongs(){
-        var seen = {}
-        for (var song of this.state.songList){
-            if (seen[song.uri]){
-                seen[song.uri]++
-            } else {
-                seen[song.uri] = 1
-            }
-        }
-        var dups = Object.keys(seen).filter(key => seen[key] > 1).map(key => { return {uri: key, total: seen[key]}})
-        console.log('total length: ' + this.state.songList.length)
-        console.log('total dups: ' + dups.length)
-        console.log(dups)
-    }
-
     getNextPage(){
         console.log('getNextPage called')
         this.setState({ nextPage: null })
@@ -91,10 +76,6 @@ export default class Main extends React.Component {
     }
     
     render() {
-        if (this.state.songList){
-            console.log('checking for duplicates')
-            this.checkForDuplicateSongs()
-        }
         return (
             <div>
                 { !this.state.user && !this.state.searchResults && 

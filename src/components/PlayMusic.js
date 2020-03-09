@@ -20,7 +20,7 @@ export default class PlayMusic extends Component {
     isPlaying(index){
         return this.props.songList.indexOf(this.state.currentSong) === index
     }
-    
+
     render() {
         return (
             <div>
@@ -30,9 +30,10 @@ export default class PlayMusic extends Component {
                 <div id="song-container">
                     {this.props.songList.map((song, i) => 
                         <SongCard song={song} index={i} changeSong={this.changeSong} isPlaying={this.isPlaying}/> )}
+                    { this.props.nextPage &&
+                    <button id="next-page-button" onClick={this.props.getNextPage}>Load next page</button> }
                 </div>
-                { this.props.nextPage &&
-                <button onClick={this.props.getNextPage}>next page</button> }
+                
             </div>
         )
     }

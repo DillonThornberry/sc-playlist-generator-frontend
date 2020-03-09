@@ -18,6 +18,7 @@ export default function ChooseOptions(props) {
                     props.setSongList(data)
                 } else {
                     message.innerHTML = "no results"
+                    fetchedAlready = false
                 }
                 
             })
@@ -26,8 +27,9 @@ export default function ChooseOptions(props) {
     return (
         <div>
             <button onClick={props.clearUser}>back</button>
-            <div id="selection-menu-container">
+         
                 <form id="option-menu" onSubmit={getPlaylist}>
+                <div id="selection-menu-container">
                     <div className="btn-group-vertical selection-buttons">
                         <input id="liked-tracks" type="radio" name="mine" value="favorites"></input>
                         <label for="liked-tracks">Liked Tracks</label>
@@ -45,11 +47,14 @@ export default function ChooseOptions(props) {
                         <input id="recent-like" type="radio" name="their" value="favorites"></input>
                         <label for="recent-like">Most Recent Like</label>
                     </div>
-                    
+                </div>
+                <div id="submit-button-container">
                     <button id="generate-playlist" type="submit">Generate Playlist</button>
+                    <h3 id="generating"></h3>
+                </div>
                 </form>
-                <h3 id="generating"></h3>
-            </div> 
+                
+             
         </div>
     )
 }

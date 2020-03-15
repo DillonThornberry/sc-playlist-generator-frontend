@@ -54,6 +54,7 @@ body {
   height: 98vh;
   background-image: url("https://elevateservices.com/wp-content/uploads/AdobeStock_208568531.jpeg");
   background-attachment: fixed;
+  font-family: Spinnaker;
 }
 
 button {
@@ -78,7 +79,6 @@ display: inline-block;
 background-color: #ddd;
 padding: 10px 20px;
 width: 20vw;
-font-family: sans-serif, Arial;
 font-size: 16px;
 border: 2px solid #444;
 border-radius: 4px;
@@ -110,7 +110,7 @@ border-color: rgb(209, 121, 39);
 	vertical-align: baseline;
 	background-color: rgba(255, 255, 255, 0.25);
 	padding: 4px;
-	margin-bottom: 2vh;
+	margin-bottom: 1vh;
 }
 
 .song-card-playing {
@@ -145,7 +145,7 @@ border-color: rgb(209, 121, 39);
 }
 
 #generate-playlist {
-	width: 20vw;
+	width: 180px;
 	height: 5vh;
 }
 
@@ -205,3 +205,42 @@ border-color: rgb(209, 121, 39);
 	margin-left: auto;
 	margin-right: auto;
 }
+
+@media only screen and (max-width: 1204px) {
+	.selection-buttons label {
+		padding: 10px 20px;
+		width: 150px;
+		font-size: 16px;
+		height: 10vh;
+	}
+	.song-art {
+		margin-top: 1vh;
+		height: 10vw;
+		width: 10vw;
+	}
+	.song-artist {
+		font-size: 2vw;
+		margin-top: .7vh;
+		margin-bottom: 2px;
+	}
+	.song-card {
+		height: 23vw;
+		width: 23vw;
+		margin-left: 2px;
+		margin-right: 2px;
+	}
+	.song-title {
+		font-size: 2vw;
+		margin-top: .7vh;
+	}
+	#song-container {
+		grid-template-columns: auto auto auto auto;
+		height: 72vh;
+	}
+	#next-page-button {
+		height: 23vw;
+		width: 23vw;
+		margin-left: 2px;
+	}
+}
+
